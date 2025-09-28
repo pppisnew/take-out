@@ -68,6 +68,11 @@ public class AutoFillAspect {
                 // 填充创建人、更新人，通过当前线程获取
                 setField(object, "createUser", BaseContext.getCurrentId());
                 setField(object, "updateUser", BaseContext.getCurrentId());
+            case UPDATE:
+                // 填充更新时间
+                setField(object, "updateTime", LocalDateTime.now());
+                // 填充更新人，通过当前线程获取
+                setField(object, "updateUser", BaseContext.getCurrentId());
         }
     }
 
